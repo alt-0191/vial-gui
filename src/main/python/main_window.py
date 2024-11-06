@@ -5,7 +5,7 @@ from json import JSONDecodeError
 
 from PyQt5.QtCore import Qt, QSettings, QStandardPaths, QTimer, QRect, QT_VERSION_STR
 from PyQt5.QtWidgets import QWidget, QComboBox, QToolButton, QHBoxLayout, QVBoxLayout, QMainWindow, QAction, qApp, \
-    QFileDialog, QDialog, QTabWidget, QActionGroup, QMessageBox, QLabel
+    QFileDialog, QDialog, QTabWidget, QActionGroup, QMessageBox, QLabel,QApplication
 
 import os
 import sys
@@ -32,6 +32,15 @@ from vial_device import VialKeyboard
 from editor.matrix_test import MatrixTest
 
 import themes
+
+
+#HIDPI support
+os.environ["QT_AUTO_SCREEN_SCALE_FACTOR"] = "1"
+os.environ["QT_ENABLE_HIGHDPI_SCALING"] = "1"
+os.environ["QT_SCALE_FACTOR"] = "1"
+
+QApplication.setAttribute(Qt.AA_EnableHighDpiScaling, True)
+QApplication.setAttribute(Qt.AA_UseHighDpiPixmaps, True)
 
 
 class MainWindow(QMainWindow):
